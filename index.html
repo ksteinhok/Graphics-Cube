@@ -47,11 +47,13 @@
         canvas = document.getElementById("canvas");
         gl = canvas.getContext("webgl2");
 
+        gl.clearDepth(1.0);
+        gl.enable(gl.DEPTH_TEST); //enable depth buffer
         gl.clearColor(0.1, 0.1, 0.1, 1.0);
         
         square = new Square(gl);
-
         square.P = mat4();
+        //square.P = perspective(0,0,0,0);
         square.MV = mat4();
 
         render();
@@ -62,7 +64,6 @@
 
         time += 1.0;
 
-        //square.MV = rotateY(time);
         square.MV = rotateY(time);
 
         square.render();

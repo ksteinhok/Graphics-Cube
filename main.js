@@ -21,7 +21,7 @@ function render() {
 
     time += 1.0;
 
-    square.MV = rotateY(time);
+    square.MV = rotateX(time);
 
     square.render();
 
